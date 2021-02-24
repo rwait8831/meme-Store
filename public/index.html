@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Meme Submission</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<nav>
+			<ul>
+            	<li><a href="http://localhost:3000/">Home</a></li>
+				<li><a href="/admin">Admin</a></li>
+			</ul>
+			
+		</nav>
+		<br>
+		<h1>Sumbmit Meme</h1>
+		
+		<script type="text/javascript"> 
+			
+			function insertMeme(){
+				var xhr = new XMLHttpRequest();			
+				var url = document.getElementById("submitMeme").value;
+				xhr.open("GET","http://localhost:3000/insertMeme?url=" + url,  true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+				xhr.onreadystatechange = function() {
+        			if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+            			document.getElementById("text-box").innerHTML = this.responseText;
+       				}
+				};
+				
+				xhr.send();
+   			}
+		</script>
+
+		
+
+		<br>
+		<br>
+		<br>
+		<br>
+		<div id="text-box">
+			<input id = "submitMeme" type = "text" placeholder="URL..." >
+		</div>
+		<br><br>
+		<div class="button-container">
+			<button type="button" onclick="insertMeme()"><strong>Insert Meme</strong></button>
+			<button type = "button" onclick=""><strong>Get Meme</strong></button>
+		</div>
+		
+		
+	</body>
+</html>

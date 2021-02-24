@@ -1,0 +1,85 @@
+body {
+	margin: 0px;
+	font-size: 1.1em;
+	background-image: url("background image.jpg");
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 5;
+    overflow: hidden;
+    background-color:steelblue;
+    position:fixed;
+    width: 100%;
+    top: 0;
+  }
+nav {
+	display: inline;
+	float: left;
+
+}
+
+nav a {
+	display: inline;
+    color: aqua;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+    height:20px;
+    position: relative;
+}
+
+a {
+	color: aqua;
+	font-weight: bold;
+}
+
+h1 {
+	margin: 30px;
+	color: aqua;
+	font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+	text-align: center;
+}
+
+input[type = text]{
+	margin:0;
+	position:absolute;
+	top:50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	height: 20px;
+	border: 10px steelblue;
+	border-radius: 3px ;
+	background-color: aqua;
+
+}
+
+	
+}
+
+#banner-text {
+	font-weight: bold;
+	padding: 200px 100px;
+	text-align: center;
+}
+.button-container{
+	height:auto;
+	position: relative;
+}
+button{
+	margin:0;
+	position:absolute;
+	top:50%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color:steelblue;
+	color:aqua;
+	border-style:none;
+	border-radius: 3px;
+	font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+	height: 45px;
+	font-size:15px;
+}
