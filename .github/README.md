@@ -2,7 +2,7 @@
 ![](https://img.shields.io/github/repo-size/timburr1/yelpForAnything)
 ![](https://img.shields.io/github/contributors/timburr1/yelpForAnything)
 ![](https://img.shields.io/github/last-commit/timburr1/yelpForAnything)
-<br>Simple ratings web page, built with MySQL and Node.js.
+<br>Simple meme database web page, built with MySQL and Node.js.
 
 ## Prerequisites
 * [**MySQL**](https://www.mysql.com/downloads/) and [**Workbench**](https://www.linuxhelp.com/how-to-install-mysql-workbench-on-linux-mint-18-03)
