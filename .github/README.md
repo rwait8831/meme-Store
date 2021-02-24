@@ -11,7 +11,7 @@
 
 ## Checkout this project
 ```bash
-$ git clone https://github.com/timburr1/yelpForAnything.git
+$ git clone https://github.com/rwait8831/meme-store.git/
 ```
 
 ## Install Node.js and NPM
