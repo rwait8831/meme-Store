@@ -4,7 +4,7 @@ body {
 	background-image: url("background image.jpg");
 }
 ul {
-    list-style-type: none;
+    list-style-type:none;
     margin: 0;
     padding: 5;
     overflow: hidden;
@@ -14,7 +14,6 @@ ul {
     top: 0;
   }
 nav {
-	display: inline;
 	float: left;
 
 }
@@ -23,7 +22,7 @@ nav a {
 	display: inline;
     color: aqua;
     text-align: center;
-    padding: 14px 16px;
+    padding: 4px 4px;
     text-decoration: none;
     font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
     height:20px;
@@ -53,9 +52,31 @@ input[type = text]{
 	border: 10px steelblue;
 	border-radius: 3px ;
 	background-color: aqua;
-
 }
 
+input[type = file]{
+	margin:0;
+	position:absolute;
+	top: 53%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	height: 20px;
+	border: 10px steelblue;
+	border-radius: 3px ;
+	background-color: aqua;
+}
+
+
+
+#meme{
+	margin:0;
+	position:absolute;
+	top: 12%;
+	left: 38%;
+	width: 450px;
+	height 450px;
+}
 	
 }
 
@@ -66,15 +87,14 @@ input[type = text]{
 }
 .button-container{
 	height:auto;
-	position: relative;
-}
-button{
 	margin:0;
 	position:absolute;
-	top:50%;
+	top:60%;
 	left: 50%;
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
+}
+button{
 	background-color:steelblue;
 	color:aqua;
 	border-style:none;

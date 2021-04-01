@@ -3,20 +3,28 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<title>Meme Submission</title>
+		<title>Meme Database</title>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	<body>
 		<nav>
 			<ul>
             	<li><a href="http://localhost:3000/">Home</a></li>
-				<li><a href="/admin">Admin</a></li>
 			</ul>
 			
 		</nav>
 		<br>
-		<h1>Sumbmit Meme</h1>
+		<h1>Meme Database</h1>
 		
+		<form action = "/putMeme" enctype = "multipart/form-data" method = "POST">
+			<input type = "file" name = "meme" accept = "image/*" />
+			<input type = "submit" value = "Upload Meme" />
+		</form>
+
+		<br> 
+
+		<img src = "/retMeme" alt = "" width = "60%">
+
 		<script type="text/javascript"> 
 			
 			function insertMeme(){
@@ -33,22 +41,34 @@
 				
 				xhr.send();
    			}
+			
+			function getMeme(){
+				var xhr = new XMLHttpRequest();
+				xhr.open("GET", "http://localhost:3000/getMeme", true);
+				xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");;
+				xhr.send();
+				
+				xhr.onreadystatechange = function() {
+        			if (this.readyState == XMLHttpRequest.DONE && this.status == 200) {
+            			document.getElementById("text-box").innerHTML = this.responseText;
+       				}
+				};
+				
+			}
 		</script>
-
-		
-
-		<br>
-		<br>
-		<br>
-		<br>
+		<!--
 		<div id="text-box">
 			<input id = "submitMeme" type = "text" placeholder="URL..." >
+			<br>
+			<br>
+			<Input id = "memeFile" type="file">
 		</div>
-		<br><br>
+		<br><br><br><br>
+		<br><br><br>
 		<div class="button-container">
-			<button type="button" onclick="insertMeme()"><strong>Insert Meme</strong></button>
-			<button type = "button" onclick=""><strong>Get Meme</strong></button>
-		</div>
+			<button id = "submit" type="button" onclick="insertMeme()"><strong>Insert Meme</strong></button>
+			<button id = "request" type = "button" onclick="getMeme()"><strong>Get Meme</strong></button>
+		</div> -->
 		
 		
 	</body>

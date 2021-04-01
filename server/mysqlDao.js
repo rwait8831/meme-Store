@@ -11,7 +11,7 @@ con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
 
-  var createTable = "CREATE TABLE IF NOT EXISTS memeDB (memeURL VARCHAR(256));";
+  var createTable = "CREATE TABLE IF NOT EXISTS memeDB (filename VARCHAR(256));";
   con.query(createTable, function (err, result) {
     if (err) throw err;
     console.log("Table created");
@@ -55,5 +55,35 @@ module.exports = {
         if (err) throw err;
         console.log("1 record inserted");
     });    
+  },
+
+  insertFile: function(filename){
+    con.query("INSERT INTO memeDB VALUES (?)", [[filename]],
+    function (err, result) {
+      if (err) throw err;
+      console.log("Inserted Filename: " + filename);
+    });
+  },
+
+  retMeme: async function(){
+    return new Promise( resolve => {
+      con.query("SELECT filename FROM memeDB ORDER BY RAND() LIMIT 1;", 
+      function (err, result) {
+        if (err) throw err;
+        //console.log("Returned filename: " + filename);
+        resolve(result[0].filename);
+      })  
+    });
+  },
+
+  getMeme: async function(){
+    return new Promise( resolve => {
+      con.query("SELECT memeURL FROM memeDB ORDER BY RAND() LIMIT 1;",
+      function (err, result) {
+        if(err) throw err;
+        //console.log("1 url returned " +result[0].memeURL);
+        resolve(result[0].memeURL);
+      })
+    });
   }
 };
