@@ -36,23 +36,10 @@ var upload = multer({ storage: storage,
     }
 })
 
-app.get('/insertMeme', (request, response) => {
-    dao.insertMeme(request.query.url)
-    var result = "<h1>Meme Submitted</h1>"
-    
-    response.status(200).send(result);
-});
-
 app.get('/getMeme', async (request, response) => {
     var url = await dao.getMeme();
     var result = "<img id = 'meme' src ='"+url+"' alt = 'meme'>"
     response.status(200).send(result);
-})
-
-app.get('/admin', (req, res)  => {
-    res.status(200).sendFile('admin.html', {
-        root: path.resolve('../public')
-    });
 })
 
 app.post('/putMeme', upload.single('meme'), function(request, response){
