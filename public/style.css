@@ -63,8 +63,10 @@ input[type = file]{
 	transform: translate(-50%, -50%);
 	height: 20px;
 	border: 10px steelblue;
-	border-radius: 3px ;
+	border-radius: 5px ;
 	background-color: aqua;
+	font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
+	color:darkslategrey;
 }
 
 
@@ -85,16 +87,8 @@ input[type = file]{
 	padding: 200px 100px;
 	text-align: center;
 }
-.button-container{
-	height:auto;
-	margin:0;
-	position:absolute;
-	top:60%;
-	left: 50%;
-	-ms-transform: translate(-50%, -50%);
-	transform: translate(-50%, -50%);
-}
-button{
+
+#submit{
 	background-color:steelblue;
 	color:aqua;
 	border-style:none;
@@ -102,4 +96,10 @@ button{
 	font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
 	height: 45px;
 	font-size:15px;
+	margin:0;
+	position:absolute;
+	top:60%;
+	left: 50%;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
 }

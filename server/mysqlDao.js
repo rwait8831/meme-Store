@@ -19,71 +19,33 @@ con.connect(function(err) {
 });
 
 
-function resultSetToHtml(memeURL){
-  return "<img src = " + memeUrl + "><br>";
+function getRandomIndex(max){
+  return Math.floor(Math.random() * max);
 }
 
-module.exports = {
-  deleteRating: function (ratee, stars, comment) {
-    con.query("DELETE FROM rating WHERE ratee=" + con.escape(ratee) + " AND star=" + con.escape(stars) + "AND comment=" + con.escape(), 
-    function (err, result) {
-        if (err) return reject(err);
-        console.log("Deleted:" + result);
-    }); 
-  },
-  
-/*  async function getResultsAsHtml() {
-    return new Promise(function(resolve, reject) {
-      con.query("SELECT ratee, stars, comment FROM rating;", 
-      function (err, result, fields) {
-          if (err) reject(err);
-          var html = "";
-          for(var n=0; n < result.length; n++) {
-            html += resultSetToHtml(result[n].ratee, result[n]).stars, result[n].comment, n);
-          }
+async function retMeme() {  
+    return new Promise( resolve => {
+  con.query("SELECT filename FROM yelp.memeDB;", 
+  function (err, result, fields) {
+      if (err) throw err;
+ 
+      var i = getRandomIndex(result.length);
+    //console.log(result[i].filename)
+    resolve("test");        
+   })
+   });  
+ }
 
-          //console.log("Result inside getResultsAsHtml: " + html);
-          resolve(html);
-      }); 
-    });
-  }*/
-    
-
-  insertMeme: function (url) {
-    con.query("INSERT INTO memeDB VALUES ( ? )", [[url]], 
-    function (err, result) {
-        if (err) throw err;
-        console.log("1 record inserted");
-    });    
-  },
-
-  insertFile: function(filename){
-    con.query("INSERT INTO memeDB VALUES (?)", [[filename]],
-    function (err, result) {
+function insertFile(filename){
+  con.query("INSERT INTO yelp.memeDB VALUES (?)", [[filename]],
+  function (err, result) {
       if (err) throw err;
       console.log("Inserted Filename: " + filename);
     });
-  },
-
-  retMeme: async function(){
-    return new Promise( resolve => {
-      con.query("SELECT filename FROM memeDB ORDER BY RAND() LIMIT 1;", 
-      function (err, result) {
-        if (err) throw err;
-        //console.log("Returned filename: " + filename);
-        resolve(result[0].filename);
-      })  
-    });
-  },
-
-  getMeme: async function(){
-    return new Promise( resolve => {
-      con.query("SELECT memeURL FROM memeDB ORDER BY RAND() LIMIT 1;",
-      function (err, result) {
-        if(err) throw err;
-        //console.log("1 url returned " +result[0].memeURL);
-        resolve(result[0].memeURL);
-      })
-    });
   }
-};
+
+
+ module.exports = {
+   insertFile: insertFile,
+   retMeme: retMeme
+ };
