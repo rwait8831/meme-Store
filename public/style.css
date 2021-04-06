@@ -74,10 +74,10 @@ input[type = file]{
 #meme{
 	margin:0;
 	position:absolute;
-	top: 12%;
-	left: 38%;
-	width: 450px;
-	height 450px;
+	top: 10%;
+	left: 40%;
+	width: 20%;
+	height 20%;
 }
 	
 }
@@ -103,3 +103,4 @@ input[type = file]{
 	-ms-transform: translate(-50%, -50%);
 	transform: translate(-50%, -50%);
 }
+

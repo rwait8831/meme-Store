@@ -31,7 +31,7 @@ async function retMeme() {
  
       var i = getRandomIndex(result.length);
     //console.log(result[i].filename)
-    resolve("test");        
+    resolve(result[i].filename);        
    })
    });  
  }
