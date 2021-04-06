@@ -36,6 +36,14 @@ var upload = multer({ storage: storage,
     } 
 })
 
+<<<<<<< HEAD
+=======
+app.get('/getMeme', async (request, response) => {
+    var url = await dao.getMeme();
+    var result = "<img id = 'meme' src ='"+url+"' alt = 'meme'>"
+    response.status(200).send(result);
+})
+>>>>>>> 848ee0724356dc486352a222d4c92ed178aecf88
 
 app.post('/putMeme', upload.single('meme'), function(request, response){
     dao.insertFile(request.file.filename);
